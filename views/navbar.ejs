@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">FİP NEDİR?</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" button onclick="C:/Users/nesli/OneDrive/Masa%C3%BCst%C3%BC/fipfighthers/index.html">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Fip <span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/asilar">Aşılar ve Önemi</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/ilaclar">Tedavi ve İlaçlar</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Menü
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/iletisim">İletişim</a>
+          <a class="dropdown-item" href="/blog">BLOG</a>
+          <a class="dropdown-item" href="/kedilerimiz">Kedilerimiz</a>
+
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">E-mail: fipfighthers@gmail.com</a>
+      </li>
+
+    </ul>
+    <div class="form-inline my-2 my-lg-0" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+        <% if (Kullanicila.yetki==1){ %> 
+          <a class="nav-link" href="/admin">ADMİN PANEL</a>
+          <%  }%> 
+        <% if (Kullanicila.yetki==2){ %> 
+        <a class="nav-link" href="/admin">MODERATÖR PANEL</a>
+        <%  }%> 
+
+
+        <li class="nav-item">
+          <% if (displayLink==true) { %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img><img src="public/img/user-circle.png" height="24ppx"> <%= Kullanicila.ad  %> 
+
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/addpost">Post Ekle</a>
+            <a class="dropdown-item" href="/kediekle">Yeni Kedi</a>
+            <a class="dropdown-item" href="/logout">ÇIKIŞ YAP</a>
+            <% } else {%>
+            <a class="nav-link" href="/login">GİRİŞ YAP</a>
+            <% } %>
+        </li>
+      </ul>
+    </div>
+    <form action="/ara" class="form-inline my-2 my-lg-0" method="get">
+      <input class="form-control mr-sm-2" type="text" name="look" placeholder="ara" aria-label="ara">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ara</button>
+    </form>
+  </div>
+</nav>

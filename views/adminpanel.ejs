@@ -1,0 +1,53 @@
+<div class="row" style="padding: 50px;">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Ad</th>
+              <th scope="col">Soyad</th>
+              <th scope="col">Kullanıcı Adı</th>
+              <th scope="col">Mail</th>
+              <th scope="col">Kayıt Tarihi</th>
+              <%if (Kullanicila.yetki==1){ %> 
+              <th scope="col">İşlem</th>
+              <% } %> 
+            </tr>
+          </thead>
+          <%kullanicilar.forEach((element, i) => { %>
+          <tbody>
+            <tr>
+              <th scope="row"><%=i+1%></th>
+              <td><%= element.ad %></td>
+              <td><%= element.soyad%></td>
+              <td><%= element.nick%></td>
+              <td><%= element.email%></td>
+              <td><%= element.tarih%></td>
+
+
+              <%if (Kullanicila.yetki==1){ %> 
+              <td><button type="button" class="btn btn-light">
+                  <a href="/admin/delete/<%= element.id%>"> Kullanıcıyı Sil</a>
+                </button>
+              <% } %> 
+              
+              
+              
+              
+              </td>
+
+
+            </tr>
+
+          </tbody>
+          <% }) %>
+        </table>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
